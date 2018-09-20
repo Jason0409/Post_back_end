@@ -17,7 +17,7 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public List<Register> getRegister() {
-        // 返回所有的register信息
+        // 返回所有的register信息..
         return registerDao.queryRegister();
     }
 
