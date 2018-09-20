@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.demo1.dao.RegisterDao">
+    <select id="queryRegister" resultType="com.project.demo1.entity.Register">
+		SELECT register_id, register_email, register_password,
+		register_address, register_name, register_phone, register_role
+		FROM tb_register
+	</select>
+    <select id="queryRegisterById" resultType="com.project.demo1.entity.Register">
+		SELECT register_id, register_email, register_password,
+		register_address, register_name, register_phone, register_role
+		FROM tb_register
+		WHERE
+		register_id=#{registerId}
+	</select>
+    <insert id="insertRegister" useGeneratedKeys="true" keyProperty="registerId"
+            keyColumn="register_id" parameterType="com.project.demo1.entity.Register">
+		INSERT INTO
+		tb_register(register_email,register_password,register_address,register_name,
+		register_phone,register_role)
+		VALUES
+		(#{registerEmail},#{registerPassword},#{registerAddress},#{registerName},
+		#{registerPhone},#{registerRole})
+	</insert>
+    <update id="updateRegister" parameterType="com.project.demo1.entity.Register">
+        update tb_register
+        <set>
+            <if test="registerEmail != null">register_email=#{registerEmail},</if>
+            <if test="registerPassword != null">register_password=#{registerPassword},</if>
+            <if test="registerAddress != null">register_address=#{registerAddress},</if>
+            <if test="registerName != null">register_name=#{registerName},</if>
+            <if test="registerPhone != null">register_phone=#{registerPhone},</if>
+            <if test="registerRole != null">register_role=#{registerRole},</if>
+        </set>
+        WHERE
+		register_id=#{registerId}
+    </update>
+    <delete id="deleteRegister">
+		DELETE FROM
+		tb_register
+		WHERE
+		register_id =
+		#{registerId}
+	</delete>
+</mapper>
