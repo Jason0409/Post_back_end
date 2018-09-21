@@ -8,11 +8,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -64,7 +60,7 @@ public class RegisterController {
      * @throws JsonParseException
      */
     @RequestMapping(value = "/addregister", method = RequestMethod.POST)
-    private Map<String, Object> addRegister(@RequestBody Register register)
+    private Map<String, Object> addRegister(@RequestParam Register register)
             throws JsonParseException, JsonMappingException, IOException {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         // 添加区域信息
@@ -82,7 +78,7 @@ public class RegisterController {
      * @throws JsonParseException
      */
     @RequestMapping(value = "/modifyregister", method = RequestMethod.POST)
-    private Map<String, Object> modifyRegister(@RequestBody Register register)
+    private Map<String, Object> modifyRegister(@RequestParam Register register)
             throws JsonParseException, JsonMappingException, IOException {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         // 修改区域信息
