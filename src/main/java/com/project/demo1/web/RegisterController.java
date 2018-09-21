@@ -60,7 +60,7 @@ public class RegisterController {
      * @throws JsonParseException
      */
     @RequestMapping(value = "/addregister", method = RequestMethod.POST)
-    private Map<String, Object> addRegister(@RequestParam Register register)
+    private Map<String, Object> addRegister(Register register)
             throws JsonParseException, JsonMappingException, IOException {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         // 添加区域信息
@@ -78,7 +78,7 @@ public class RegisterController {
      * @throws JsonParseException
      */
     @RequestMapping(value = "/modifyregister", method = RequestMethod.POST)
-    private Map<String, Object> modifyRegister(@RequestParam Register register)
+    private Map<String, Object> modifyRegister(Register register)
             throws JsonParseException, JsonMappingException, IOException {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         // 修改区域信息
