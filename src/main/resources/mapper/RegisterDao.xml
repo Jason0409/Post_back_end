@@ -16,6 +16,15 @@
 		WHERE
 		register_id=#{registerId}
 	</select>
+
+	<select id="queryRegisterByEmail" resultType="com.project.demo1.entity.Register">
+		SELECT register_email, register_password,
+		register_address, register_name, register_phone, register_role
+		FROM tb_register
+		WHERE
+		register_email=#{registerEmail}
+	</select>
+
     <insert id="insertRegister" useGeneratedKeys="true" keyProperty="registerId"
             keyColumn="register_id" parameterType="com.project.demo1.entity.Register">
 		INSERT INTO

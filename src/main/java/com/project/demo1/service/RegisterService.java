@@ -21,6 +21,13 @@ public interface RegisterService {
     Register getRegisterById(int registerId);
 
     /**
+     * 根据Email列出register
+     *
+     * @return Register
+     */
+    Register getRegisterByEmail(String registerEmail);
+
+    /**
      * 插入register信息
      *
      * @param register

@@ -26,6 +26,11 @@ public class RegisterServiceImpl implements RegisterService {
         return registerDao.queryRegisterById(registerId);
     }
 
+    @Override
+    public Register getRegisterByEmail(String registerEmail) {
+        return registerDao.queryRegisterByEmail(registerEmail);
+    }
+
     @Transactional
     @Override
     public boolean addRegister(Register register) {
@@ -51,7 +56,7 @@ public class RegisterServiceImpl implements RegisterService {
 
         if (register.getRegisterId() != null && register.getRegisterId() > 0) {
             try {
-                // 更新区域信息
+                // 更新register信息
                 int effectedNum = registerDao.updateRegister(register);
                 if (effectedNum > 0) {
                     return true;

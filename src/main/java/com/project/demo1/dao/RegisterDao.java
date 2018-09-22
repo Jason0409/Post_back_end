@@ -20,6 +20,13 @@ public interface RegisterDao {
     Register queryRegisterById(int registerId);
 
     /**
+     * 根据Email列出register
+     *
+     * @return Register
+     */
+    Register queryRegisterByEmail(String registerEmail);
+
+    /**
      * 插入register信息
      *
      * @param register

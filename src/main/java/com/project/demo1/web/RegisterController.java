@@ -50,6 +50,22 @@ public class RegisterController {
         return modelMap;
     }
 
+
+    /**
+     * 通过区域Email获取register信息
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getregisterbyemail", method = RequestMethod.GET)
+    private Map<String, Object> getRegisterByEmail(String registerEmail) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // 获取区域信息
+        Register register = registerService.getRegisterByEmail(registerEmail);
+        modelMap.put("register", register);
+        return modelMap;
+    }
+
+
     /**
      * 添加register信息
      *
