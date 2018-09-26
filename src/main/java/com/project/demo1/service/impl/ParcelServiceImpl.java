@@ -1,43 +1,43 @@
 package com.project.demo1.service.impl;
 
-import java.util.List;
-
+import com.project.demo1.dao.ParcelDao;
+import com.project.demo1.entity.Parcel;
+import com.project.demo1.service.ParcelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.demo1.dao.RegisterDao;
-import com.project.demo1.entity.Register;
-import com.project.demo1.service.RegisterService;
+import java.util.List;
 
 @Service
-public class RegisterServiceImpl implements RegisterService {
+public class ParcelServiceImpl implements ParcelService {
+
+
     @Autowired
-    private RegisterDao registerDao;
+    private ParcelDao parcelDao;
+
 
     @Override
-    public List<Register> getRegister() {
-        // 返回所有的register信息..
-        return registerDao.queryRegister();
+    public List<Parcel> getParcel() {
+        return parcelDao.queryParcel();
     }
 
     @Override
-    public Register getRegisterById(int registerId) {
-        return registerDao.queryRegisterById(registerId);
+    public Parcel getParcelByTrackId(String trackId) {
+        return parcelDao.queryParcelByTrackId(trackId);
     }
 
     @Override
-    public Register getRegisterByEmail(String registerEmail) {
-        return registerDao.queryRegisterByEmail(registerEmail);
+    public Parcel getParcelByAssignerEmail(String assignerEmail) {
+        return parcelDao.queryParcelByAssignerEmail(assignerEmail);
     }
 
     @Transactional
     @Override
-    public boolean addRegister(Register register) {
-
-        if (register.getRegisterEmail() != null && !"".equals(register.getRegisterEmail())) {
+    public boolean addParcel(Parcel parcel) {
+        if (parcel.getParcelTrackId() != null && !"".equals(parcel.getParcelTrackId())) {
             try {
-                int effectedNum = registerDao.insertRegister(register);
+                int effectedNum = parcelDao.insertParcel(parcel);
                 if (effectedNum > 0) {
                     return true;
                 } else {
@@ -53,12 +53,11 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Transactional
     @Override
-    public boolean modifyRegister(Register register) {
-
-        if (register.getRegisterId() != null && register.getRegisterId() > 0) {
+    public boolean modifyParcel(Parcel parcel) {
+        if (parcel.getParcelId() != null && parcel.getParcelId() > 0) {
             try {
-                // 更新register信息
-                int effectedNum = registerDao.updateRegister(register);
+                // 更新parcel信息
+                int effectedNum = parcelDao.updateParcel(parcel);
                 if (effectedNum > 0) {
                     return true;
                 } else {
@@ -74,11 +73,11 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Transactional
     @Override
-    public boolean deleteRegister(int registerId) {
-        if (registerId > 0) {
+    public boolean deleteParcel(int parcelId) {
+        if (parcelId > 0) {
             try {
                 // 删除信息
-                int effectedNum = registerDao.deleteRegister(registerId);
+                int effectedNum = parcelDao.deleteParcel(parcelId);
                 if (effectedNum > 0) {
                     return true;
                 } else {
