@@ -22,7 +22,7 @@ public class RegisterController {
     private RegisterService registerService;
 
     /**
-     * 获取所有的register信息
+     * get all the register information
      *
      * @return
      */
@@ -30,21 +30,21 @@ public class RegisterController {
     private Map<String, Object> listregister() {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         List<Register> list = new ArrayList<Register>();
-        // 获取区域列表
+        // get the list of register
         list = registerService.getRegister();
         modelMap.put("registerList", list);
         return modelMap;
     }
 
     /**
-     * 通过区域Id获取register信息
+     * get register information be ID
      *
      * @return
      */
     @RequestMapping(value = "/getregisterbyid", method = RequestMethod.GET)
     private Map<String, Object> getRegisterById(Integer registerId) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        // 获取区域信息
+        // get register information
         Register register = registerService.getRegisterById(registerId);
         modelMap.put("register", register);
         return modelMap;
@@ -52,14 +52,14 @@ public class RegisterController {
 
 
     /**
-     * 通过区域Email获取register信息
+     * get register information be Email
      *
      * @return
      */
     @RequestMapping(value = "/getregisterbyemail", method = RequestMethod.GET)
     private Map<String, Object> getRegisterByEmail(String registerEmail) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        // 获取区域信息
+        // get register information
         Register register = registerService.getRegisterByEmail(registerEmail);
         modelMap.put("register", register);
         return modelMap;
@@ -67,7 +67,7 @@ public class RegisterController {
 
 
     /**
-     * 添加register信息
+     * insert register information
      *
      * @param register
      * @return
@@ -79,13 +79,13 @@ public class RegisterController {
     private Map<String, Object> addRegister(Register register)
             throws JsonParseException, JsonMappingException, IOException {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        // 添加区域信息
+        // insert register information
         modelMap.put("success", registerService.addRegister(register));
         return modelMap;
     }
 
     /**
-     * 修改register信息
+     * modify register information
      *
      * @param register
      * @return
@@ -97,15 +97,21 @@ public class RegisterController {
     private Map<String, Object> modifyRegister(Register register)
             throws JsonParseException, JsonMappingException, IOException {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        // 修改区域信息
+        // modify register information
         modelMap.put("success", registerService.modifyRegister(register));
         return modelMap;
     }
 
+    /**
+     * delete register information by Id
+     *
+     * @return
+     */
+
     @RequestMapping(value = "/removeregister", method = RequestMethod.GET)
     private Map<String, Object> removeRegister(Integer registerID) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        // 修改区域信息
+        // delete register information
         modelMap.put("success", registerService.deleteRegister(registerID));
         return modelMap;
     }
