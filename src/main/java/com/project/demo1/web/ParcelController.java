@@ -42,78 +42,78 @@ public class ParcelController {
      *
      * @return
      */
-//    @RequestMapping(value = "/getregisterbyid", method = RequestMethod.GET)
-//    private Map<String, Object> getRegisterById(Integer registerId) {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        // get register information
-//        Register register = registerService.getRegisterById(registerId);
-//        modelMap.put("register", register);
-//        return modelMap;
-//    }
-//
-//
-//    /**
-//     * get register information be Email
-//     *
-//     * @return
-//     */
-//    @RequestMapping(value = "/getregisterbyemail", method = RequestMethod.GET)
-//    private Map<String, Object> getRegisterByEmail(String registerEmail) {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        // get register information
-//        Register register = registerService.getRegisterByEmail(registerEmail);
-//        modelMap.put("register", register);
-//        return modelMap;
-//    }
-//
-//
-//    /**
-//     * insert register information
-//     *
-//     * @param register
-//     * @return
-//     * @throws IOException
-//     * @throws JsonMappingException
-//     * @throws JsonParseException
-//     */
-//    @RequestMapping(value = "/addregister", method = RequestMethod.POST)
-//    private Map<String, Object> addRegister(Register register)
-//            throws JsonParseException, JsonMappingException, IOException {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        // insert register information
-//        modelMap.put("success", registerService.addRegister(register));
-//        return modelMap;
-//    }
-//
-//    /**
-//     * modify register information
-//     *
-//     * @param register
-//     * @return
-//     * @throws IOException
-//     * @throws JsonMappingException
-//     * @throws JsonParseException
-//     */
-//    @RequestMapping(value = "/modifyregister", method = RequestMethod.POST)
-//    private Map<String, Object> modifyRegister(Register register)
-//            throws JsonParseException, JsonMappingException, IOException {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        // modify register information
-//        modelMap.put("success", registerService.modifyRegister(register));
-//        return modelMap;
-//    }
-//
-//    /**
-//     * delete register information by Id
-//     *
-//     * @return
-//     */
-//
-//    @RequestMapping(value = "/removeregister", method = RequestMethod.GET)
-//    private Map<String, Object> removeRegister(Integer registerID) {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        // delete register information
-//        modelMap.put("success", registerService.deleteRegister(registerID));
-//        return modelMap;
-//    }
+    @RequestMapping(value = "/getparcelbytrackid", method = RequestMethod.GET)
+    private Map<String, Object> getParcelByTrackId(String trackId) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // get register information
+        Parcel parcel = parcelService.getParcelByTrackId(trackId);
+        modelMap.put("parcel", parcel);
+        return modelMap;
+    }
+
+
+    /**
+     * get register information be Email
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getparcelbyassigneremail", method = RequestMethod.GET)
+    private Map<String, Object> getParcelByAssignerEmail(String assignerEmail) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // get register information
+        Parcel parcel = parcelService.getParcelByAssignerEmail(assignerEmail);
+        modelMap.put("parcel", parcel);
+        return modelMap;
+    }
+
+
+    /**
+     * insert register information
+     *
+     * @param parcel
+     * @return
+     * @throws IOException
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     */
+    @RequestMapping(value = "/addparcel", method = RequestMethod.POST)
+    private Map<String, Object> addParcel(Parcel parcel)
+            throws JsonParseException, JsonMappingException, IOException {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // insert register information
+        modelMap.put("success", parcelService.addParcel(parcel));
+        return modelMap;
+    }
+
+    /**
+     * modify register information
+     *
+     * @param parcel
+     * @return
+     * @throws IOException
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     */
+    @RequestMapping(value = "/modifyparcel", method = RequestMethod.POST)
+    private Map<String, Object> modifyParcel(Parcel parcel)
+            throws JsonParseException, JsonMappingException, IOException {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // modify register information
+        modelMap.put("success", parcelService.modifyParcel(parcel));
+        return modelMap;
+    }
+
+    /**
+     * delete register information by Id
+     *
+     * @return
+     */
+
+    @RequestMapping(value = "/removeparcel", method = RequestMethod.GET)
+    private Map<String, Object> removeParcel(Integer parcelId) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // delete register information
+        modelMap.put("success", parcelService.deleteParcel(parcelId));
+        return modelMap;
+    }
 }
