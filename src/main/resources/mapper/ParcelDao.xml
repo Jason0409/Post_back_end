@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.demo1.dao.ParcelDao">
+    <select id="queryParcel" resultType="com.project.demo1.entity.Parcel">
+		SELECT parcel_id, parcel_trackid, assigner_email, agent_email,
+		courier_email, receiver_name, receiver_phone, destination, parcel_time,
+		parcel_status, parcel_vcode
+		FROM tb_parcel
+	</select>
+    <select id="queryParcelByTrackId" resultType="com.project.demo1.entity.Parcel">
+		SELECT parcel_id, parcel_trackid, assigner_email, agent_email,
+		courier_email, receiver_name, receiver_phone, destination, parcel_time,
+		parcel_status, parcel_vcode
+		FROM tb_parcel
+		WHERE
+		parcel_trackid=#{parcelTrackId}
+	</select>
+    <select id="queryParcelByAssignerEmail" resultType="com.project.demo1.entity.Parcel">
+		SELECT parcel_id, parcel_trackid, assigner_email, agent_email,
+		courier_email, receiver_name, receiver_phone, destination, parcel_time,
+		parcel_status, parcel_vcode
+		FROM tb_parcel
+		WHERE
+		assigner_email=#{assignerEmail}
+	</select>
+    <insert id="insertParcel" useGeneratedKeys="true" keyProperty="parcelId"
+            keyColumn="parcel_id" parameterType="com.project.demo1.entity.Parcel">
+		INSERT INTO
+		tb_parcel(parcel_trackid, assigner_email, agent_email,
+		courier_email, receiver_name, receiver_phone, destination, parcel_time,
+		parcel_status, parcel_vcode)
+		VALUES
+		(#{parcelTrackId},#{assignerEmail},#{agentEmail},#{courierEmail},
+		#{receiverName},#{receiverPhone},#{destination},#{parcelTime},#{parcelStatus},#{parcelVcode})
+	</insert>
+    <update id="updateParcel" parameterType="com.project.demo1.entity.Parcel">
+        update tb_parcel
+        <set>
+            <if test="parcelTrackId != null">parcel_trackid=#{parcelTrackId},</if>
+            <if test="assignerEmail != null">assigner_email=#{assignerEmail},</if>
+            <if test="agentEmail != null">agent_email=#{agentEmail},</if>
+            <if test="courierEmail != null">courier_email=#{courierEmail},</if>
+            <if test="receiverName != null">receiver_name=#{receiverName},</if>
+            <if test="receiverPhone != null">receiver_phone=#{receiverPhone},</if>
+            <if test="destination != null">destination=#{destination},</if>
+            <if test="parcelTime != null">parcel_time=#{parcelTime},</if>
+            <if test="parcelStatus != null">parcel_status=#{parcelStatus},</if>
+            <if test="parcelVcode != null">parcel_vcode=#{parcelVcode},</if>
+        </set>
+        WHERE
+        parcel_id=#{parcelId}
+    </update>
+
+    <delete id="deleteParcel">
+		DELETE FROM
+		tb_parcel
+		WHERE
+		parcel_id =
+		#{parcelId}
+	</delete>
+</mapper>
