@@ -50,7 +50,8 @@
 		parcel_status, parcel_vcode, parcel_way)
 		VALUES
 		(#{parcelTrackId},#{assignerEmail},#{agentEmail},#{courierEmail},
-		#{receiverName},#{receiverPhone},#{destination},#{parcelTime},#{parcelStatus},#{parcelVcode})
+		#{receiverName},#{receiverPhone},#{destination},#{parcelTime},
+		#{parcelStatus},#{parcelVcode},#{parcelWay})
 	</insert>
     <update id="updateParcel" parameterType="com.project.demo1.entity.Parcel">
         update tb_parcel
