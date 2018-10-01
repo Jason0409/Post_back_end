@@ -7,13 +7,13 @@
     <select id="queryParcel" resultType="com.project.demo1.entity.Parcel">
 		SELECT parcel_id, parcel_trackid, assigner_email, agent_email,
 		courier_email, receiver_name, receiver_phone, destination, parcel_time,
-		parcel_status, parcel_vcode
+		parcel_status, parcel_vcode, parcel_way
 		FROM tb_parcel
 	</select>
     <select id="queryParcelByTrackId" resultType="com.project.demo1.entity.Parcel">
 		SELECT parcel_id, parcel_trackid, assigner_email, agent_email,
 		courier_email, receiver_name, receiver_phone, destination, parcel_time,
-		parcel_status, parcel_vcode
+		parcel_status, parcel_vcode, parcel_way
 		FROM tb_parcel
 		WHERE
 		parcel_trackid=#{parcelTrackId}
@@ -21,7 +21,7 @@
     <select id="queryParcelByAssignerEmail" resultType="com.project.demo1.entity.Parcel">
 		SELECT parcel_id, parcel_trackid, assigner_email, agent_email,
 		courier_email, receiver_name, receiver_phone, destination, parcel_time,
-		parcel_status, parcel_vcode
+		parcel_status, parcel_vcode, parcel_way
 		FROM tb_parcel
 		WHERE
 		assigner_email=#{assignerEmail}
@@ -31,7 +31,7 @@
 		INSERT INTO
 		tb_parcel(parcel_trackid, assigner_email, agent_email,
 		courier_email, receiver_name, receiver_phone, destination, parcel_time,
-		parcel_status, parcel_vcode)
+		parcel_status, parcel_vcode, parcel_way)
 		VALUES
 		(#{parcelTrackId},#{assignerEmail},#{agentEmail},#{courierEmail},
 		#{receiverName},#{receiverPhone},#{destination},#{parcelTime},#{parcelStatus},#{parcelVcode})
@@ -49,6 +49,7 @@
             <if test="parcelTime != null">parcel_time=#{parcelTime},</if>
             <if test="parcelStatus != null">parcel_status=#{parcelStatus},</if>
             <if test="parcelVcode != null">parcel_vcode=#{parcelVcode},</if>
+			<if test="parcelWay != null">parcel_way=#{parcelWay},</if>
         </set>
         WHERE
         parcel_id=#{parcelId}

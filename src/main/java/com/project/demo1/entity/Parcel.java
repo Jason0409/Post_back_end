@@ -13,6 +13,15 @@ public class Parcel {
     private String parcelTime;
     private String parcelStatus;
     private String parcelVcode;
+    private String parcelWay;
+
+    public String getParcelWay() {
+        return parcelWay;
+    }
+
+    public void setParcelWay(String parcelWay) {
+        this.parcelWay = parcelWay;
+    }
 
     public String getParcelTime() {
         return parcelTime;

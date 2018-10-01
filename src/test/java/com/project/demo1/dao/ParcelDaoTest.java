@@ -32,7 +32,7 @@ public class ParcelDaoTest {
     @Ignore
     public void queryParcelByTrackId() {
         Parcel parcel = parcelDao.queryParcelByTrackId("YM34D");
-        assertEquals("ewaf213", parcel.getParcelVcode());
+        assertEquals("dfa", parcel.getParcelWay());
     }
 
     @Test
@@ -56,6 +56,7 @@ public class ParcelDaoTest {
         parcel.setParcelTime("2 hours");
         parcel.setParcelStatus("Done");
         parcel.setParcelVcode("wafq123");
+        parcel.setParcelWay("delivery");
 
         //将该对象实例添加入库
         int effectedNum = parcelDao.insertParcel(parcel);
@@ -63,7 +64,7 @@ public class ParcelDaoTest {
         assertEquals(1, effectedNum);
         //校验总数是否+1
         List<Parcel> parcelList = parcelDao.queryParcel();
-        assertEquals(3, parcelList.size());
+        assertEquals(5, parcelList.size());
     }
 
     @Test
