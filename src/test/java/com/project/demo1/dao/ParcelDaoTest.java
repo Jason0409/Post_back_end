@@ -38,8 +38,8 @@ public class ParcelDaoTest {
     @Test
     @Ignore
     public void queryParcelByAssignerEmail() {
-        Parcel parcel = parcelDao.queryParcelByAssignerEmail("user_1231@anu.edu.au");
-        assertEquals("ewaf213", parcel.getParcelVcode());
+        List<Parcel> parcelList = parcelDao.queryParcelByAssignerEmail("test1@demo.com");
+        assertEquals(2, parcelList.size());
     }
 
     @Test

@@ -33,7 +33,7 @@ public class ParcelController {
         List<Parcel> list = new ArrayList<Parcel>();
         // get the list of register
         list = parcelService.getParcel();
-        modelMap.put("registerList", list);
+        modelMap.put("parcelList", list);
         return modelMap;
     }
 
@@ -61,8 +61,9 @@ public class ParcelController {
     private Map<String, Object> getParcelByAssignerEmail(String assignerEmail) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         // get register information
-        Parcel parcel = parcelService.getParcelByAssignerEmail(assignerEmail);
-        modelMap.put("parcel", parcel);
+        List<Parcel> list = new ArrayList<Parcel>();
+        list = parcelService.getParcelByAssignerEmail(assignerEmail);
+        modelMap.put("parcelList", list);
         return modelMap;
     }
 

@@ -28,7 +28,7 @@ public class ParcelServiceImpl implements ParcelService {
     }
 
     @Override
-    public Parcel getParcelByAssignerEmail(String assignerEmail) {
+    public List<Parcel> getParcelByAssignerEmail(String assignerEmail) {
         return parcelDao.queryParcelByAssignerEmail(assignerEmail);
     }
 

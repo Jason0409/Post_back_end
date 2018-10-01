@@ -24,7 +24,7 @@ public interface ParcelDao {
      *
      * @return Parcel
      */
-    Parcel queryParcelByAssignerEmail(String assignerEmail);
+    List<Parcel> queryParcelByAssignerEmail(String assignerEmail);
 
     /**
      * 插入parcel信息

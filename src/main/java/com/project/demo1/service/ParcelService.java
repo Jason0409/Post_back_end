@@ -24,7 +24,7 @@ public interface ParcelService {
      *
      * @return Parcel
      */
-    Parcel getParcelByAssignerEmail(String assignerEmail);
+    List<Parcel> getParcelByAssignerEmail(String assignerEmail);
 
     /**
      * 插入parcel信息
