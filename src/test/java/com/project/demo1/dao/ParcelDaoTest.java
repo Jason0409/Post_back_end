@@ -37,6 +37,20 @@ public class ParcelDaoTest {
 
     @Test
     @Ignore
+    public void queryParcelByAgentEmail() {
+        List<Parcel> parcelList = parcelDao.queryParcelByAgentEmail("agent@demo.com");
+        assertEquals(3, parcelList.size());
+    }
+
+    @Test
+    @Ignore
+    public void queryParcelByCourierEmail() {
+        List<Parcel> parcelList = parcelDao.queryParcelByCourierEmail("u6166396@anu.edu.au");
+        assertEquals(1, parcelList.size());
+    }
+
+    @Test
+    @Ignore
     public void queryParcelByAssignerEmail() {
         List<Parcel> parcelList = parcelDao.queryParcelByAssignerEmail("test1@demo.com");
         assertEquals(2, parcelList.size());

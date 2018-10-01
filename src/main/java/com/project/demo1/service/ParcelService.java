@@ -20,11 +20,25 @@ public interface ParcelService {
     Parcel getParcelByTrackId(String trackId);
 
     /**
-     * 根据Email列出Parcel
+     * 根据assignerEmail列出Parcel
      *
      * @return Parcel
      */
     List<Parcel> getParcelByAssignerEmail(String assignerEmail);
+
+    /**
+     * 根据agentEmail列出Parcel
+     *
+     * @return Parcel
+     */
+    List<Parcel> getParcelByAgentEmail(String agentEmail);
+
+    /**
+     * 根据courierEmail列出Parcel
+     *
+     * @return Parcel
+     */
+    List<Parcel> getParcelByCourierEmail(String courierEmail);
 
     /**
      * 插入parcel信息

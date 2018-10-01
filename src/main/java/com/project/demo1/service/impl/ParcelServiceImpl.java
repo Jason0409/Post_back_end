@@ -32,6 +32,16 @@ public class ParcelServiceImpl implements ParcelService {
         return parcelDao.queryParcelByAssignerEmail(assignerEmail);
     }
 
+    @Override
+    public List<Parcel> getParcelByAgentEmail(String agentEmail) {
+        return parcelDao.queryParcelByAgentEmail(agentEmail);
+    }
+
+    @Override
+    public List<Parcel> getParcelByCourierEmail(String courierEmail) {
+        return parcelDao.queryParcelByCourierEmail(courierEmail);
+    }
+
     @Transactional
     @Override
     public boolean addParcel(Parcel parcel) {

@@ -26,6 +26,22 @@
 		WHERE
 		assigner_email=#{assignerEmail}
 	</select>
+	<select id="queryParcelByAgentEmail" resultType="com.project.demo1.entity.Parcel">
+		SELECT parcel_id, parcel_trackid, assigner_email, agent_email,
+		courier_email, receiver_name, receiver_phone, destination, parcel_time,
+		parcel_status, parcel_vcode, parcel_way
+		FROM tb_parcel
+		WHERE
+		agent_email=#{agentEmail}
+	</select>
+	<select id="queryParcelByCourierEmail" resultType="com.project.demo1.entity.Parcel">
+		SELECT parcel_id, parcel_trackid, assigner_email, agent_email,
+		courier_email, receiver_name, receiver_phone, destination, parcel_time,
+		parcel_status, parcel_vcode, parcel_way
+		FROM tb_parcel
+		WHERE
+		courier_email=#{courierEmail}
+	</select>
     <insert id="insertParcel" useGeneratedKeys="true" keyProperty="parcelId"
             keyColumn="parcel_id" parameterType="com.project.demo1.entity.Parcel">
 		INSERT INTO

@@ -38,7 +38,7 @@ public class ParcelController {
     }
 
     /**
-     * get register information be ID
+     * get parcel information be ID
      *
      * @return
      */
@@ -51,6 +51,36 @@ public class ParcelController {
         return modelMap;
     }
 
+
+    /**
+     * get parcel information be Email
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getparcelbyagentemail", method = RequestMethod.GET)
+    private Map<String, Object> getParcelByAgentEmail(String agentEmail) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // get register information
+        List<Parcel> list = new ArrayList<Parcel>();
+        list = parcelService.getParcelByAgentEmail(agentEmail);
+        modelMap.put("parcelList", list);
+        return modelMap;
+    }
+
+    /**
+     * get parcel information be Email
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getparcelbycourieremail", method = RequestMethod.GET)
+    private Map<String, Object> getParcelByCourierEmail(String courierEmail) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // get register information
+        List<Parcel> list = new ArrayList<Parcel>();
+        list = parcelService.getParcelByCourierEmail(courierEmail);
+        modelMap.put("parcelList", list);
+        return modelMap;
+    }
 
     /**
      * get register information be Email
@@ -66,7 +96,6 @@ public class ParcelController {
         modelMap.put("parcelList", list);
         return modelMap;
     }
-
 
     /**
      * insert register information

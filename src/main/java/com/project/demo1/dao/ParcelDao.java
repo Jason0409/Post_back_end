@@ -20,11 +20,25 @@ public interface ParcelDao {
     Parcel queryParcelByTrackId(String trackId);
 
     /**
-     * 根据Email列出Parcel
+     * 根据assignerEmail列出Parcel
      *
-     * @return Parcel
+     * @return parcelList
      */
     List<Parcel> queryParcelByAssignerEmail(String assignerEmail);
+
+    /**
+     * 根据agentEmail列出Parcel
+     *
+     * @return parcelList
+     */
+    List<Parcel> queryParcelByAgentEmail(String agentEmail);
+
+    /**
+     * 根据courierEmail列出Parcel
+     *
+     * @return parcelList
+     */
+    List<Parcel> queryParcelByCourierEmail(String courierEmail);
 
     /**
      * 插入parcel信息
