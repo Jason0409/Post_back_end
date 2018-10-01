@@ -38,8 +38,8 @@ public class RegisterDaoTest {
     @Test
     @Ignore
     public void queryRegisterByEmail() {
-        Register register = registerDao.queryRegisterByEmail("u6068466@anu.edu.au");
-        assertEquals("harrison", register.getRegisterName());
+        Register register = registerDao.queryRegisterByEmail("u6212332@anu.edu.au");
+        assertEquals("Jason", register.getRegisterName());
     }
 
 

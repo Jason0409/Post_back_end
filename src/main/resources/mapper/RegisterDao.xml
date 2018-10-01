@@ -18,7 +18,7 @@
 	</select>
 
 	<select id="queryRegisterByEmail" resultType="com.project.demo1.entity.Register">
-		SELECT register_email, register_password,
+		SELECT register_id, register_email, register_password,
 		register_address, register_name, register_phone, register_role
 		FROM tb_register
 		WHERE
