@@ -103,6 +103,41 @@ public class RegisterController {
     }
 
     /**
+     * insert register information
+     *
+     * @param register
+     * @return
+     * @throws IOException
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     */
+    @RequestMapping(value = "/addregister2", method = RequestMethod.POST)
+    private Map<String, Object> addRegister2(@RequestBody Register register)
+            throws JsonParseException, JsonMappingException, IOException {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // insert register information
+        modelMap.put("success", registerService.addRegister(register));
+        return modelMap;
+    }
+
+    /**
+     * modify register information
+     *
+     * @param register
+     * @return
+     * @throws IOException
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     */
+    @RequestMapping(value = "/modifyregister2", method = RequestMethod.POST)
+    private Map<String, Object> modifyRegister2(@RequestBody Register register)
+            throws JsonParseException, JsonMappingException, IOException {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // modify register information
+        modelMap.put("success", registerService.modifyRegister(register));
+        return modelMap;
+    }
+    /**
      * delete register information by Id
      *
      * @return

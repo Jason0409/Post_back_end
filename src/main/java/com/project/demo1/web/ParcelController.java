@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.project.demo1.entity.Parcel;
 import com.project.demo1.service.ParcelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -126,6 +127,42 @@ public class ParcelController {
      */
     @RequestMapping(value = "/modifyparcel", method = RequestMethod.POST)
     private Map<String, Object> modifyParcel(Parcel parcel)
+            throws JsonParseException, JsonMappingException, IOException {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // modify register information
+        modelMap.put("success", parcelService.modifyParcel(parcel));
+        return modelMap;
+    }
+
+    /**
+     * insert register information
+     *
+     * @param parcel
+     * @return
+     * @throws IOException
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     */
+    @RequestMapping(value = "/addparcel2", method = RequestMethod.POST)
+    private Map<String, Object> addParcel2(@RequestBody Parcel parcel)
+            throws JsonParseException, JsonMappingException, IOException {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // insert register information
+        modelMap.put("success", parcelService.addParcel(parcel));
+        return modelMap;
+    }
+
+    /**
+     * modify register information
+     *
+     * @param parcel
+     * @return
+     * @throws IOException
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     */
+    @RequestMapping(value = "/modifyparcel2", method = RequestMethod.POST)
+    private Map<String, Object> modifyParcel2(@RequestBody Parcel parcel)
             throws JsonParseException, JsonMappingException, IOException {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         // modify register information
